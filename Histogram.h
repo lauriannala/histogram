@@ -6,6 +6,7 @@
 #define HISTOGRAM_HISTOGRAM_H
 
 
+#include <vector>
 #include "HistogramBase.h"
 
 class Histogram : Hist::HistogramBase {
@@ -17,6 +18,9 @@ public:
     [[nodiscard]] Hist::EInteger getMode() const override;
     [[nodiscard]] Hist::EInteger getMinValue() const override;
     [[nodiscard]] Hist::EInteger getMaxValue() const override;
+
+private:
+    std::vector<int> m_values;
 };
 
 

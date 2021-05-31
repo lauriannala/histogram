@@ -3,22 +3,47 @@
 //
 
 #include <iostream>
+#include <algorithm>
 #include "Histogram.h"
 
 Hist::EInteger Histogram::getMode() const {
-    return Hist::Two;
+    auto values_clone = m_values;
+    std::sort(values_clone.begin(), values_clone.end());
+
+    auto mode = values_clone[0];
+    int occurrence = 1;
+    int max_occurrence = 1;
+
+    for(int i = 1; i < values_clone.size(); i++)
+    {
+        if (m_values[i] > m_values[i-1]) {
+            occurrence = 1;
+        } else {
+            occurrence++;
+        }
+
+        if(occurrence >= max_occurrence)
+        {
+            max_occurrence = occurrence;
+            mode = values_clone[i];
+        }
+    }
+
+    return static_cast<Hist::EInteger>(mode);
 }
 
 Hist::EInteger Histogram::getMinValue() const {
-    return Hist::Two;
+    auto min = std::min_element(m_values.begin(), m_values.end());
+    return (Hist::EInteger) *min;
 }
 
 Hist::EInteger Histogram::getMaxValue() const {
-    return Hist::Two;
+    auto max = std::max_element(m_values.begin(), m_values.end());
+    return (Hist::EInteger) *max;
 }
 
-void Histogram::add(Hist::EInteger) {
-
+void Histogram::add(Hist::EInteger value) {
+    m_values.push_back(value);
 }
 
 Histogram::Histogram(Hist::HistogramBase && base) : HistogramBase(base) {}
