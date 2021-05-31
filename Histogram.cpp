@@ -29,17 +29,17 @@ Hist::EInteger Histogram::getMode() const {
         }
     }
 
-    return static_cast<Hist::EInteger>(mode);
+    return mode;
 }
 
 Hist::EInteger Histogram::getMinValue() const {
     auto min = std::min_element(m_values.begin(), m_values.end());
-    return (Hist::EInteger) *min;
+    return *min;
 }
 
 Hist::EInteger Histogram::getMaxValue() const {
     auto max = std::max_element(m_values.begin(), m_values.end());
-    return (Hist::EInteger) *max;
+    return *max;
 }
 
 void Histogram::add(Hist::EInteger value) {

@@ -20,7 +20,7 @@ public:
     [[nodiscard]] Hist::EInteger getMaxValue() const override;
 
 private:
-    std::vector<int> m_values;
+    std::vector<Hist::EInteger> m_values;
 };
 
 
