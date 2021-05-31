@@ -16,7 +16,7 @@ Hist::EInteger Histogram::getMode() const {
 
     for(int i = 1; i < values_clone.size(); i++)
     {
-        if (m_values[i] > m_values[i-1]) {
+        if (values_clone[i] > values_clone[i-1]) {
             occurrence = 1;
         } else {
             occurrence++;
