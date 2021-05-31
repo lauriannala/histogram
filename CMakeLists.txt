@@ -3,4 +3,4 @@ project(histogram)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(histogram main.cpp Histogram.cpp Histogram.h Logger.cpp Logger.h HistogramBase.h)
+add_executable(histogram main.cpp Histogram.cpp Histogram.h Logger.cpp Logger.h HistogramBase.h RandomEintegerGenerator.cpp RandomEintegerGenerator.h)
