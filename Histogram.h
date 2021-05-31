@@ -6,9 +6,17 @@
 #define HISTOGRAM_HISTOGRAM_H
 
 
-class Histogram {
+#include "HistogramBase.h"
+
+class Histogram : Hist::HistogramBase {
 public:
-    void Hello();
+    explicit Histogram(std::unique_ptr<Logger>);
+    explicit Histogram(const HistogramBase &);
+    explicit Histogram(HistogramBase &&);
+    void add(Hist::EInteger) override;
+    [[nodiscard]] Hist::EInteger getMode() const override;
+    [[nodiscard]] Hist::EInteger getMinValue() const override;
+    [[nodiscard]] Hist::EInteger getMaxValue() const override;
 };
 
 

@@ -5,7 +5,7 @@
 #define HISTOGRAMBASE_H
 
 
-#include "Log.h"
+#include "Logger.h"
 
 #include <memory>
 
