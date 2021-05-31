@@ -1,6 +1,8 @@
 #include <iostream>
+#include "Histogram.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    auto histogram = new Histogram();
+    histogram->Hello();
     return 0;
 }
